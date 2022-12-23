@@ -1,4 +1,34 @@
-.navbar {
-    display: flex;
-    flex-direction: row;
+/* FONTS AND BACKGROUND COLOR */
+body {
+    background-color: #80d5839a;
+    margin: 10px;
 }
+
+/* NAV BAR STYLING */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* place-items: center; */
+    background-color: #17a81cd8;
+    max-height: 100px;
+    min-width: 484px;
+    max-width: 600px;
+}
+
+.logo {
+    max-height: 100px;
+    align-self: center;
+}
+
+.navbtn-img {
+    align-self: baseline;
+    justify-self: center;
+    max-width: 40px;
+}
+
+.form-inline {
+    align-self: baseline;
+    justify-self: left;
+}
+
+/* MAIN BODY STYLING */
