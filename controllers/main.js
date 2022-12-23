@@ -1,7 +1,14 @@
 // Dependencies
+const express = require('express');
+const router = express.Router();
+const Main = require('../models/seed');
 
 // I is for INDEX
-
+router.get('/', (req, res) => {
+    Main.find({}, (err, foundMain) => {
+        res.render('')
+    })
+})
 // N is for NEW
 
 // D is for DELETE
