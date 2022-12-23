@@ -18,8 +18,13 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
 
+// To link static directory/file 
+app.use(express.static('.'));
+
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+
+
 
 // Controllers
 const mainController = require('./controllers/main');
@@ -28,7 +33,9 @@ app.use('/main', mainController);
 // Routes
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('index.ejs', {
+        tabTitle: 'Register or Login',
+    });
 });
 
 // Shallow route to the route for comment delete function
