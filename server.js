@@ -6,6 +6,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 3000;
 
 // DB config
 mongoose.connect(process.env.DATABASE_URI, {
@@ -60,5 +61,4 @@ app.get('/', (req, res) => {
 // app.use('/', articlesController)
 
 // Listening 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
+app.listen(PORT, () => console.log('express is listening on:', PORT));
