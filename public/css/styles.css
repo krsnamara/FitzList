@@ -2,9 +2,9 @@
 body {
     background-color: #80d5839a;
     /* margin: 10px; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     font-family: 'Chivo Mono', monospace;
     /* font-family: 'Kanit', sans-serif; */
 }
@@ -38,12 +38,13 @@ body {
     min-width: 2fr;
 }
 
-/* MAIN BODY STYLING */
-
-
 /* LANDING PAGE STYLING */
+loginpages{
+    background-color: aqua;
+}
 main {
     background-color: white;
+    min-width: 770px;
     max-width: 878px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -92,4 +93,13 @@ main {
 .buttons:hover {
     color:aliceblue;
     background-color: rgba(25, 199, 46, 0.6);
+}
+
+.forgot {
+    font-size: 12px;
+}
+
+footer {
+    background-color: #17a81cd8;
+    min-height: 100px;
 }

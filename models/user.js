@@ -1,15 +1,17 @@
+// Dependencies 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const mainSchema = new Schema( {
-    name: String,
-    email: String,
-    password: String,
-    location: String,
+// User Schema
+const userSchema = Schema({
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true }
 },  {
     timestamps: true    
 });
 
-const User = mongoose.model('User', mainSchema);
+// User Model
+const User = mongoose.model('User', userSchema);
 
-module.exports = Main;
+// Export User Model
+module.exports = User;

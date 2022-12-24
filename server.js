@@ -2,11 +2,15 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const session = require('express-session');
+const methodOverride = require('method-override');
 require('dotenv').config();
+
 
 // DB config
 mongoose.connect(process.env.DATABASE_URI, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 // Database Connection Error / Success
@@ -17,31 +21,43 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 // Middlewares
 app.use(express.urlencoded({ extended: false }));
+app.use(
+        session({
+            secret: process.env.SECRET,
+            resave: false,
+            saveUninitialized: false,
+        }));
+app.use(methodOverride('_method'));
 
 // To link static directory/file 
 app.use(express.static('.'));
 
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
-
-
-
 // Controllers
-const mainController = require('./controllers/main');
-app.use('/main', mainController);
+const userController = require('./controllers/users');
+const sessionsController = require('./controllers/sessions');
+app.use('/users', userController);
+app.use('/sessions', sessionsController);
 
 // Routes
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', {
-        tabTitle: 'Register or Login',
+    if (req.session.currentUser) {
+        res.render('profile.ejs', {
+        currentUser: req.session.currentUser,
+        tabTitle: 'Profile',
     });
+    } else {
+        res.render('index.ejs', {
+            currentUser: req.session.currentUser,
+            tabTitle: 'Register or Login',
+        });
+    }
 });
+
 
 // Shallow route to the route for comment delete function
 // app.use('/', articlesController)
 
 // Listening 
-app.listen(3000, () =>{
-    console.log('listening...')
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`server is listening on port: ${PORT}`));
