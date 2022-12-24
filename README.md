@@ -18,11 +18,13 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 - Git/Github - Github Pages for Hosting
 ***
 ## Screenshots
-![wireframe](assests/wireframe.jpg)
+![wireframe](public/imgs/readme-img/wireframe-landing.png)
+<br>   
+![wireframe](public/imgs/readme-img/wireframe-profile.png)
 <br>
 ***
 ### Production version
-![wireframe](assests/production-shot.jpg)
+![wireframe](/public/imgs/readme-img/screenshot-wip.png)
 ***
 ## Deployed Website
 [lets go find that job...](https://krsnamara.github.io/FitzList/) to visit deployed app! 

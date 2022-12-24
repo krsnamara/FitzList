@@ -4,8 +4,16 @@
 <body>
     <%- include('./partials/nav.ejs') %>
     <main>
-        <h1>Welcome to the Fitz List</h1>
-        <p>Work is in progress people!!!</p>
+        <p class="landingheader">Welcome to your trades community</p>
+        <form action="/" class="loginform" method="POST">
+            <input type="text" name="name" class="inputbox" placeholder="Fake Email"><br>
+            <input type="text" name="name" class="inputbox" placeholder="Fake Password"><br>
+            <input type="submit" class="buttons" value="Sign In"><br>
+            <p>------------- or -------------</p>
+            <input type="submit" class="buttons" value="Join now"><br>
+
+        </form>
+        <img src="../public/imgs/jobs-genders.png" class="loginimg" alt="gender trades">
     </main>
 
 </body>
