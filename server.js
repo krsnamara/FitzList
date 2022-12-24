@@ -28,6 +28,7 @@ app.use(
             saveUninitialized: false,
         }));
 app.use(methodOverride('_method'));
+app.use(express.json());
 
 // To link static directory/file 
 app.use(express.static('.'));
