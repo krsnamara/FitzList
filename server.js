@@ -56,6 +56,13 @@ app.get('/', (req, res) => {
     }
 });
 
+app.get('/forgotten', (req, res) => {
+    res.render('forgotten.ejs', {
+        tabTitle: 'Rick Roll',
+    });
+});
+
+
 
 // Shallow route to the route for comment delete function
 // app.use('/', articlesController)

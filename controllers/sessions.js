@@ -6,6 +6,13 @@ const User = require('../models/user.js');
 const session = require('express-session');
 
 // I is for INDEX
+sessionsRouter.get('/profile', (req, res) => {
+    User.find({}, (err, foundUser) => {
+        res.render('/profile.ejs', {
+            users: foundUser,
+        });
+    });
+});
 
 // N is for NEW
 sessionsRouter.get('/wronglogin', (req, res) => {
@@ -48,6 +55,16 @@ sessionsRouter.post('/', (req, res) => {
 // E is for EDIT
 
 // S is for SHOW
+
+sessionsRouter.get('/:id', (req, res) => {
+    User.findById(req.params.id)
+    .populate('user')
+    .exec((err, foundUser) => {
+        res.render('/profile.ejs', {
+            user: foundUser
+        });
+    });
+});
 
 // Export Sessions Router
 module.exports = sessionsRouter;
