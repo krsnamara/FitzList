@@ -14,7 +14,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
     place-items: center;
-    background-color: #17a81cd8;
+    background-color: #19AD1E;
     max-height: 100px;
     min-width: 484px;
     width: cover;

@@ -6,11 +6,11 @@
     <div class="loginpages">
         <main>
             <p class="landingheader">Welcome to your trades community</p>
-            <form action="/sessions/" class="loginform" method="POST">
-                <input type="email" name="email" id="email" class="inputbox" placeholder="Fake Email"><br><br>
-                <input type="password" name="password" id="password" class="inputbox" placeholder="Fake Password"><br>
+            <form action="/sessions" class="loginform" method="POST">
+                <input type="text" name="email" id="email" class="inputbox" placeholder="Fake Email"><br><br>
+                <input type="text" name="password" id="password" class="inputbox" placeholder="Fake Password"><br>
                 <a href="/forgotten" class="forgot">forgot password?</a><br><br>
-                <input type="submit" class="buttons" value="Sign In"><br>
+                <input type="button" class="buttons" onclick="location.href='/join';" value="Sign In"><br>
                 <p>------------- or -------------</p>
                 <input type="button" class="buttons" onclick="location.href='/users/join/'" value="Join now"><br>
 

@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
 const userRouter = express.Router();
-const User = require('../models/user')
+const User = require('../models/user.js');
 
 // I is for INDEX
 
@@ -11,14 +11,22 @@ userRouter.get('/join', (req, res) => {
     res.render('users/join.ejs', {
         currentUser: req.session.currentUser,
         tabTitle: 'Join us now!'
-    })
-})
+    });
+});
 // D is for DELETE
 
 // U is for UPDATE
 
 // C is for CREATE
-
+userRouter.post('/', (req, res) => {
+    // overwrite the user password with the hased password, then pass that in to our database
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+        // console.log()
+    User.create(req.body, (error, createdUser) => {
+        // console.log(User); kiko's test
+        res.redirect('/');
+    });
+});
 // E is for EDIT
 
 // S is for SHOW

@@ -8,8 +8,8 @@ const session = require('express-session');
 // I is for INDEX
 
 // N is for NEW
-sessionsRouter.get('/sign-in', (req, res) => {
-    res.render('sessions/sign-in.ejs', {
+sessionsRouter.get('/wronglogin', (req, res) => {
+    res.render('sessions/wronglogin.ejs', {
         currentUser: req.session.currentUser,
         tabTitle: 'Login',
     });
@@ -37,7 +37,7 @@ sessionsRouter.post('/', (req, res) => {
 
             if (passwordMatches) {
                 req.session.currentUser = foundUser;
-                res.redirect('/');
+                res.redirect('/profile.ejs');
             } else {
                 res.send('Oops! Invalid credentials.');
             }
