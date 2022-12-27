@@ -1,5 +1,19 @@
 <nav class="navbar">
-    <div> <img src="https://i.imgur.com/AS5jKw0.png" class="logo" alt="logo"> </div>
+    <% if(currentUser) {%>
+    <div><a href="/"><img src="https://i.imgur.com/AS5jKw0.png" class="logo" alt="logo"></a></div>
+    <form action="/dashboard" method="GET" class="form-inline">
+        <div> <input type="search" name="search" class="form-control" placeholder="search..."> <!--search bar from DevSprout youtube tutorial --></div>
+    </form>
+    <div ><a href="/"><img src="https://i.imgur.com/XM3Rjdq.png" alt="home" class="navbtn-img"></a></div>
+    <div ><a href="/network"><img src="https://i.imgur.com/VZ50VIz.png" alt="network" class="navbtn-img"></a></div>
+    <div ><a href="/jobs"><img src="https://i.imgur.com/4aOsqP3.png" alt="jobs" class="navbtn-img"></a></div>
+    <div ><a href="/notes"><img src="https://i.imgur.com/yJ7mCg1.png" alt="notes" class="navbtn-img"></a></div>
+    <div ><a href="/pizza"><img src="https://i.imgur.com/9njLyxa.png" alt="pizza" class="navbtn-img"></a></div>
+    <div ><a href="/profile"><img src="https://i.imgur.com/TLVRiKW.png" alt="me" class="navbtn-img"></a>
+          <form action="/sessions?_method=DELETE" method="POST"><input type="submit" class="logoutbtn" value="Log Out">
+    </div>
+    <% } else { %>
+        <div><a href="/"><img src="https://i.imgur.com/AS5jKw0.png" class="logo" alt="logo"></a></div>
     <form action="/dashboard" method="GET" class="form-inline">
         <div> <input type="search" name="search" class="form-control" placeholder="search..."> <!--search bar from DevSprout youtube tutorial --></div>
     </form>
@@ -9,4 +23,5 @@
     <div ><a href="/notes"><img src="https://i.imgur.com/yJ7mCg1.png" alt="notes" class="navbtn-img"></a></div>
     <div ><a href="/pizza"><img src="https://i.imgur.com/9njLyxa.png" alt="pizza" class="navbtn-img"></a></div>
     <div ><a href="/profile"><img src="https://i.imgur.com/TLVRiKW.png" alt="me" class="navbtn-img"></a></div>
+    <% }%>
 </nav>

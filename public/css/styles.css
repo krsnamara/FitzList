@@ -38,11 +38,22 @@ body {
     min-width: 2fr;
 }
 
+.logoutbtn {
+    background-color: rgb(255, 255, 255, .6);
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: 'Kanit', sans-serif;
+}
+.logoutbtn:hover {
+    color:aliceblue;
+    background-color: rgba(25, 199, 46, 0.6);
+}
+
 /* LANDING PAGE STYLING */
-loginpages{
+.loginpages{
     background-color: aqua;
 }
-main {
+.landingpage {
     background-color: white;
     min-width: 770px;
     max-width: 878px;
@@ -102,4 +113,75 @@ main {
 footer {
     background-color: #17a81cd8;
     min-height: 100px;
+}
+
+/* Forgotten Password */
+/* https://www.youtube.com/watch?v=OOy764mDtiA&ab_channel=DaniKrossing */
+
+.videowrapper {
+    position: relative;
+    /* left: 10%; */
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0px;
+}
+.videowrapper iframe {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+/* Profile Page Styles */
+
+main {
+    background-color: white;
+}
+
+.profilewrapper {
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bioimage {
+    padding: 10px;
+}
+
+.bio {
+    color:#19AD1E;
+}
+
+textarea {
+    border: none;
+}
+
+.skills {
+    color: #19AD1E;
+}
+
+.portfolio {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    max-height: 200px;
+    padding: 10px;
+}
+
+.profileimg {
+    max-width: 250px;
+}
+.portfolioimg {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    gap: 10px;
+}
+
+li {
+    font-size: 12px;
+    color: black;
 }

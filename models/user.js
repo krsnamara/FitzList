@@ -5,8 +5,10 @@ const Schema = mongoose.Schema;
 // User Schema
 const userSchema = Schema({
   email: { type: String, unique: true, required: true },
-  password: { type: String, required: true }
-});
+  password: { type: String, required: true },
+  },  {
+    timestamps: true
+  });
 
 // User Model
 const User = mongoose.model('User', userSchema);

@@ -3,7 +3,9 @@
     <%- include('./partials/head.ejs') %>
 <body>
     <%- include('./partials/nav.ejs') %>
-    <iframe width="1000" height="1000" src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <%- include('./partials/footer.ejs') %>
+    <div class="videowrapper">
+   <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> 
+   <%- include('./partials/footer.ejs') %>
 </body>
 </html>

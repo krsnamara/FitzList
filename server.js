@@ -41,10 +41,11 @@ app.use('/users', userController);
 app.use('/sessions', sessionsController);
 
 // Routes
-
+// I is for INDEX
+// framework but never working if else to show profile if session exists
 app.get('/', (req, res) => {
     if (req.session.currentUser) {
-        res.render('profile.ejs', {
+        res.render('sessions/profile.ejs', {
         currentUser: req.session.currentUser,
         tabTitle: 'Profile',
     });
@@ -56,11 +57,19 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/forgotten', (req, res) => {
-    res.render('forgotten.ejs', {
-        tabTitle: 'Rick Roll',
-    });
-});
+
+// N is for NEW
+
+// D is for DELETE
+
+// U is for UPDATE
+
+// C is for CREATE
+
+// E is for EDIT
+
+// S is for SHOW
+
 
 
 
