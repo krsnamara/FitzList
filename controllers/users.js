@@ -5,7 +5,12 @@ const userRouter = express.Router();
 const User = require('../models/user.js');
 
 // I is for INDEX
-
+userRouter.get('/pizza', (req, res) => {
+    res.render('/pizza.ejs', {
+        currentUser: req.session.currentUser,
+        tabTitle: 'I want Pizza',
+        });
+    });
 // N is for NEW
 userRouter.get('/join', (req, res) => {
     res.render('users/join.ejs', {

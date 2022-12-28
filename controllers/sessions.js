@@ -23,7 +23,8 @@ sessionsRouter.get('/', (req, res) => {
 // Forgotten Password Route
 
 sessionsRouter.get('/forgotten', (req, res) => {
-res.render('./forgotten.ejs', {
+res.render('/forgotten.ejs', {
+    currentUser: req.session.currentUser,
     tabTitle: 'Rick Roll',
     });
 });
@@ -32,6 +33,7 @@ res.render('./forgotten.ejs', {
 
 sessionsRouter.get('/pizza', (req, res) => {
     res.render('/pizza.ejs', {
+        currentUser: req.session.currentUser,
         tabTitle: 'I want Pizza',
         });
     });

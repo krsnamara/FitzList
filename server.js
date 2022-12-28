@@ -57,6 +57,19 @@ app.get('/', (req, res) => {
     }
 });
 
+app.get('/pizza', (req, res) => {
+    res.render('pizza.ejs', {
+        currentUser: req.session.currentUser,
+        tabTitle: 'App I want Pizza',
+        });
+    });
+
+app.get('/forgotten', (req, res) => {
+    res.render('forgotten.ejs', {
+        currentUser: req.session.currentUser,
+        tabTitle: 'Rick Roll',
+        });
+    });
 
 // N is for NEW
 
