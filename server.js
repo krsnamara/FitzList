@@ -95,7 +95,7 @@ app.get('/newprofile', (req, res) => {
 // U is for UPDATE
 
 // C is for CREATE
-app.post('/newprofile', (req, res) => {
+app.post('/profile', (req, res) => {
     Profiles.create(req.body, (err, createdProfile) => {
 		res.redirect('/profile');
 	});
@@ -104,7 +104,11 @@ app.post('/newprofile', (req, res) => {
 // E is for EDIT
 
 // S is for SHOW
-
+app.get('/profile/:id', (req, res) => {
+    User.findById(req.params.id, (err, profile) => {
+		res.render('profile.ejs', { profile });
+	});
+});
 
 
 
