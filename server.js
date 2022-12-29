@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const methodOverride = require('method-override');
 require('dotenv').config();
+const User = require('./models/user.js');
+const Profiles = require('./models/profiles.js')
 
 const PORT = process.env.PORT || 3000;
 
@@ -67,17 +69,37 @@ app.get('/pizza', (req, res) => {
 app.get('/forgotten', (req, res) => {
     res.render('forgotten.ejs', {
         currentUser: req.session.currentUser,
-        tabTitle: 'Rick Roll',
+        tabTitle: 'app Rick Roll',
         });
     });
 
-// N is for NEW
+    // app.get('/profile', (req, res) => {
+    //         res.render('sessions/profile.ejs', {
+    //         currentUser: req.session.currentUser,
+    //         tabTitle: 'Profile',
+    //     });
+    // });
 
+// N is for NEW
+app.get('/newprofile', (req, res) => {
+	// step 1) find all available authors from the author collection
+	// step 2) provide those authors as a context to the new.ejs template
+	User.find({}, (err, user) => {
+		res.render('sessions/newprofile.ejs', { user,
+            tabTitle: 'New Profile',
+            currentUser: req.session.currentUser, });
+	});
+});
 // D is for DELETE
 
 // U is for UPDATE
 
 // C is for CREATE
+app.post('/newprofile', (req, res) => {
+    Profiles.create(req.body, (err, createdProfile) => {
+		res.redirect('/profile');
+	});
+});
 
 // E is for EDIT
 

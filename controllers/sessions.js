@@ -46,6 +46,14 @@ sessionsRouter.get('/profile', (req, res) => {
 
 // N is for NEW
 
+sessionsRouter.get('/jobs', (req, res) => {
+	// step 1) find all available authors from the author collection
+	// step 2) provide those authors as a context to the new.ejs template
+	User.find({}, (err, user) => {
+		res.render('sessions/jobscreate.ejs', { user });
+	});
+});
+
 // D is for DELETE
 sessionsRouter.delete('/', (req, res) => {
     req.session.destroy((error) => {
