@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+        <main>
+            <h1>Edit Profile Page</h1>
+            <form action="/profiles/<%=users._id%>?_method=PUT" method="POST">
+                Profile Picture: <input type="text" name="profileimg" value="<%=users.profileimg %>"><br>
+                Name: <input type="text" name="name" value="<%=users.name %>"><br>
+                Bio: <textarea type="text" name="about"><%=users.about %></textarea><br>
+                Skills: <input type="text" name="price" value="<%=users.skills %>"><br>
+                <input type="submit" value="Edit Profile">
+            </form>
+            <form action='/profiles/<%=users.id %>?_method=DELETE' method='POST' >
+                <input type="submit" value='DELETE' />
+            </form>
+        </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

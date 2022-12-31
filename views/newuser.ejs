@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+            <main>
+                <form action="/profiles" method="POST">
+                    Profile Picture: <input type="text" name="profileimg" placeholder="Enter Image Url"><br>
+                    Name: <input type="text" name="name" placeholder="What do we call you?"><br>
+                    About Me: <textarea type="text" name="about" placeholder="Tell us about yourself"></textarea><br>
+                    Skills: <input type="text" name="skills" placeholder="What skill do you have?"><br>
+                    <input type="submit" value="Create Profile">
+                </form>
+            </main>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
