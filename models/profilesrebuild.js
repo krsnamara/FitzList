@@ -14,7 +14,7 @@ const userSchema = Schema(
 );
 
 // User Model
-const User = mongoose.model('User', userSchema);
+const Profilesrebuild = mongoose.model('Profilesrebuild', userSchema);
 
 // Export User Model
-module.exports = User;
+module.exports = Profilesrebuild;

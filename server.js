@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config();
 // Model/Schema links
-const User = require('./models/user.js');
+const Profilesrebuild = require('./models/profilesrebuild.js');
 
 const app = express();
 
@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/profiles', (req, res) => {
-    User.find({}, (err, users)  => {
+    Profilesrebuild.find({}, (err, users)  => {
         res.render('profiles.ejs', {
             users,
             tabTitle: 'Register or Login',});
@@ -74,31 +74,31 @@ app.get('/profiles/newuser', (req, res) => {
 
 // D is for DELETE
 app.delete('/profiles/:id', (req, res) => {
-    User.findByIdAndDelete(req.params.id, (err) => {
+    Profilesrebuild.findByIdAndDelete(req.params.id, (err) => {
         res.redirect('/profiles/newuser');
     });
 });
 
 // U is for UPDATE
 app.put('/profiles/:id', (req, res) => {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, users) =>{
+    Profilesrebuild.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, users) =>{
         res.redirect('/profiles');
     });
 });
 
 // C is for CREATE
-app.post('/profiles/newuser', (req, res) => {
-    User.create(req.body, (err, users) => {
+app.post('/profiles', (req, res) => {
+    Profilesrebuild.create(req.body, (err, users) => {
         console.log(users),
-        // res.redirect('/profiles');
-        res.send(err);
+        res.redirect('/profiles');
+        // res.send(err);
     });
-    console.log(req.body)
+    // console.log(req.body)
 });
 
 // E is for EDIT
 app.get('/profiles/:id/edit', (req, res) => {
-    User.findById(req.params.id, (err, users) =>{
+    Profilesrebuild.findById(req.params.id, (err, users) =>{
         res.render('editprofile.ejs', {
             users,
             tabTitle: 'Lets edit',
@@ -108,7 +108,7 @@ app.get('/profiles/:id/edit', (req, res) => {
 
 // S is for SHOW
 app.get('/profiles/:id', (req, res) => {
-    User.findById(req.params.id, (err, users) => {
+    Profilesrebuild.findById(req.params.id, (err, users) => {
         res.render('showprofile.ejs', {
             users, 
             tabTitle: 'Its you!',
