@@ -87,10 +87,13 @@ app.put('/profiles/:id', (req, res) => {
 });
 
 // C is for CREATE
-app.post('/profiles', (req, res) => {
-    User.create(req.body, (err, createdUser) => {
-        res.redirect('/profiles');
+app.post('/profiles/newuser', (req, res) => {
+    User.create(req.body, (err, users) => {
+        console.log(users),
+        // res.redirect('/profiles');
+        res.send(err);
     });
+    console.log(req.body)
 });
 
 // E is for EDIT

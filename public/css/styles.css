@@ -185,3 +185,9 @@ li {
     font-size: 12px;
     color: black;
 }
+
+/* Profile Index Page Styling */
+
+.homeimg {
+    max-width: 150px;
+}
