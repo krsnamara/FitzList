@@ -185,7 +185,10 @@ li {
 }
 
 /* Profile Index Page Styling */
-
+.main-index{
+    display: flex;
+    flex-wrap: wrap;
+}
 .homeimg {
     max-width: 150px;
 }

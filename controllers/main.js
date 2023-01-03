@@ -56,7 +56,7 @@ mainRouter.put('/profiles/:id', (req, res) => {
 // C is for CREATE
 mainRouter.post('/profiles', (req, res) => {
     Profilesrebuild.create(req.body, (err, users) => {
-        console.log(users),
+        // console.log(users),
         res.redirect('/profiles');
         // res.send(err);
     });
