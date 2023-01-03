@@ -7,11 +7,11 @@
                 <h1>
                     <a href='/profiles/newuser'>Create New Profile</a>
                 </h1>
-        <div class='main-index'>
+        <div class="main-index">
             <% for (let i = 0; i < users.length; i++){%>
-            <div class='indexdisplay'>
-                <a href='/profiles/<%= users[i].id %>'><%= users[i].name %></a> 
-                <img src='<%=users[i].profileimg %>' class='homeimg' alt='profileimg'>
+            <div class='indexdisplay' onclick="location.href='/profiles/<%= users[i].id %>'">
+                <img src="<%=users[i].profileimg %>" class="homeimg" alt="profileimg">
+                <div class="username"><%= users[i].name %></div> 
             </div>
             <% } %>
         </div>
