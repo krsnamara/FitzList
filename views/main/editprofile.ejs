@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
+    <%- include('../partials/head.ejs') %>
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
         <main>
             <h1>Edit Profile Page</h1>
             <form action="/profiles/<%=users._id%>?_method=PUT" method="POST">
@@ -16,6 +16,6 @@
                 <input type="submit" value='DELETE' />
             </form>
         </main>
-    <%- include('./partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>

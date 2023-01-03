@@ -3,11 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 require('dotenv').config();
-// Model/Schema links
-const Profilesrebuild = require('./models/profilesrebuild.js');
 
 const app = express();
-
 const PORT = process.env.PORT || 3000;
 
 // DB Config
@@ -32,11 +29,10 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // Controllers
-// const userController = require('./controllers/user');
-// app.use('/user', userController);
+const mainController = require('./controllers/main.js');
+app.use(mainController);
 // const sessionsController = require('./controllers/sessions');
 // app.use('/sessions', sessionsController);
-
 
 // I is for INDEX
 app.get('/', (req, res) => {
@@ -44,78 +40,6 @@ app.get('/', (req, res) => {
         tabTitle: 'Register or Login',
     });
 });
-
-app.get('/profiles', (req, res) => {
-    Profilesrebuild.find({}, (err, users)  => {
-        res.render('profiles.ejs', {
-            users,
-            tabTitle: 'Register or Login',});
-    });
-});
-
-app.get('/pizza', (req, res) => {
-    res.render('pizza.ejs', {
-        tabTitle: 'App I want Pizza',
-        });
-    });
-
-app.get('/forgotten', (req, res) => {
-    res.render('forgotten.ejs', {
-        tabTitle: 'app Rick Roll',
-        });
-    });
-
-// N is for NEW
-app.get('/profiles/newuser', (req, res) => {
-    res.render('newuser.ejs', {
-        tabTitle: 'Join us now!',
-    });
-});
-
-// D is for DELETE
-app.delete('/profiles/:id', (req, res) => {
-    Profilesrebuild.findByIdAndDelete(req.params.id, (err) => {
-        res.redirect('/profiles/newuser');
-    });
-});
-
-// U is for UPDATE
-app.put('/profiles/:id', (req, res) => {
-    Profilesrebuild.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, users) =>{
-        res.redirect('/profiles');
-    });
-});
-
-// C is for CREATE
-app.post('/profiles', (req, res) => {
-    Profilesrebuild.create(req.body, (err, users) => {
-        console.log(users),
-        res.redirect('/profiles');
-        // res.send(err);
-    });
-    // console.log(req.body)
-});
-
-// E is for EDIT
-app.get('/profiles/:id/edit', (req, res) => {
-    Profilesrebuild.findById(req.params.id, (err, users) =>{
-        res.render('editprofile.ejs', {
-            users,
-            tabTitle: 'Lets edit',
-        });
-    });
-});
-
-// S is for SHOW
-app.get('/profiles/:id', (req, res) => {
-    Profilesrebuild.findById(req.params.id, (err, users) => {
-        res.render('showprofile.ejs', {
-            users, 
-            tabTitle: 'Its you!',
-        });
-    }); 
-});
-
 
 // Listener
 app.listen(PORT, () => console.log('express is listening on:', PORT));
