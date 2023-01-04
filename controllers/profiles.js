@@ -43,10 +43,10 @@ profilesRouter.put('/:id', (req, res) => {
 
 // C is for CREATE
 profilesRouter.post('/newuser', (req, res) => {
-    console.log('string of random words');
+    // console.log('string of random words'); dustin testing logs
     Profiles.create(req.body, (err, profile) => {
         // console.log(profile),
-        // res.redirect('/');
+        res.redirect('/profiles');
         // res.send(err);
     });
     // console.log(req.body)
