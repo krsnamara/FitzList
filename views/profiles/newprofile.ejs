@@ -4,22 +4,14 @@
     <body>
         <%- include('../partials/nav.ejs') %>
             <main>
-                <form action="/profile" method="POST">
+                <form action="/profiles" method="POST">
                     Profile Picture: <input type="text" name="profileimg" placeholder="Enter Image Url"><br>
                     Name: <input type="text" name="name" placeholder="What do we call you?"><br>
                     About Me: <textarea type="text" name="about" placeholder="Tell us about yourself"></textarea><br>
                     Skills: <input type="text" name="skills" placeholder="What skill do you have?"><br>
-                    Project Image 1: <input type="text" name="projects[img1]" placeholder="URL of a Project"><br>
-                    Project Image 2: <input type="text" name="projects[img2]" placeholder="URL of a Project"><br>
-                    Project Image 3: <input type="text" name="projects[img3]" placeholder="URL of a Project"><br>
-                    Project Image 4: <input type="text" name="projects[img4]" placeholder="URL of a Project"><br>
                     <input type="submit" value="Create Profile">
                 </form>
             </main>
         <%- include('../partials/footer.ejs') %>
     </body>
 </html>
-
-<!-- Here I would like to add some JS to both the skills and image section
-    that allows user to add multiple submissions and as they add submissions
-    the form, the form grows to accomodate new submission.  -->

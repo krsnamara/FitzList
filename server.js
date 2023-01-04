@@ -36,18 +36,19 @@ app.use(methodOverride('_method'));
 app.use(express.static('.'));
 
 // Controllers
-const userController = require('./controllers/users');
+const userController = require('./controllers/users.js');
 app.use('/users', userController);
-const sessionsController = require('./controllers/sessions');
+const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
-const eggsRouter = require('./controllers/eggs.js')
+const eggsController = require('./controllers/eggs.js');
+app.use(eggsController);
+const profilesController = require('./controllers/profiles.js');
+app.use('/profiles', profilesController);
 
-// Routes
-// I is for INDEX
-// framework but never working if else to show profile if session exists
+// Index Route
 app.get('/', (req, res) => {
     if (req.session.currentUser) {
-        res.render('sessions/profile.ejs', {
+        res.render('/profile.ejs', {
         currentUser: req.session.currentUser,
         tabTitle: 'Profile',
     });
@@ -58,58 +59,6 @@ app.get('/', (req, res) => {
         });
     }
 });
-
-// app.get('/pizza', (req, res) => {
-//     res.render('pizza.ejs', {
-//         currentUser: req.session.currentUser,
-//         tabTitle: 'App I want Pizza',
-//         });
-//     });
-
-// app.get('/forgotten', (req, res) => {
-//     res.render('forgotten.ejs', {
-//         currentUser: req.session.currentUser,
-//         tabTitle: 'app Rick Roll',
-//         });
-//     });
-
-    // app.get('/profile', (req, res) => {
-    //         res.render('sessions/profile.ejs', {
-    //         currentUser: req.session.currentUser,
-    //         tabTitle: 'Profile',
-    //     });
-    // });
-
-// N is for NEW
-app.get('/newprofile', (req, res) => {
-	// step 1) find all available authors from the author collection
-	// step 2) provide those authors as a context to the new.ejs template
-	User.find({}, (err, user) => {
-		res.render('sessions/newprofile.ejs', { user,
-            tabTitle: 'New Profile',
-            currentUser: req.session.currentUser, });
-	});
-});
-// D is for DELETE
-
-// U is for UPDATE
-
-// C is for CREATE
-app.post('/newprofile', (req, res) => {
-    Profiles.create(req.body, (err, createdProfile) => {
-		res.redirect('/profile');
-	});
-});
-
-// E is for EDIT
-
-// S is for SHOW
-
-
-
-
-// Shallow route to the route for comment delete function
-// app.use('/', articlesController)
 
 // Listening 
 app.listen(PORT, () => console.log('express is listening on:', PORT));

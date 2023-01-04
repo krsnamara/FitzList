@@ -2,22 +2,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// User Schema
-const profilesSchema = Schema({
-    profileimg: { type: String },
-    name: { type: String },
-    about: {type: String},
-    skills: { type: String},
-    projects: [{
-        img1: "String",
-        img2: "String",
-        img3: "String",
-        img4: "String",
-    }],
-    }, { timestamps: true });
+// Defining New Schema Name and Key Value Pairs
+const userSchema = Schema(
+    {
+        profileimg: { type: String },
+        name: { type: String},
+        about: {type: String},
+        skills: { type: String},
+    },  
+    {   timestamps: true }
+);
 
 // User Model
-const Profiles = mongoose.model('Profiles', profilesSchema);
+const Profiles = mongoose.model('Profiles', userSchema);
 
 // Export User Model
 module.exports = Profiles;

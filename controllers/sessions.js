@@ -8,11 +8,11 @@ const checkAuth = require('../middleware/checkauth.js')
 
 // I is for INDEXs
 
-sessionsRouter.get('/profile', (req, res) => {
-    User.find({}, (err, users) => {
-        res.render('/profile.ejs', { users });
-    });
-});
+// sessionsRouter.get('/profile', (req, res) => {
+//     User.find({}, (err, users) => {
+//         res.render('/profile.ejs', { users });
+//     });
+// });
 
 // N is for NEW
 
@@ -46,7 +46,7 @@ sessionsRouter.post('/', (req, res) => {
 
             if (passwordMatches) {
                 req.session.currentUser = foundUser;
-                res.redirect('/');
+                res.redirect('/profiles.ejs');
             } else {
                 res.send('Oops! Invalid credentials.');
             }
@@ -58,15 +58,15 @@ sessionsRouter.post('/', (req, res) => {
 
 // S is for SHOW
 
-sessionsRouter.get('/:id', (req, res) => {
-    User.findById(req.params.id)
-    .populate('user')
-    .exec((err, foundUser) => {
-        res.render('/sessions/profile.ejs', {
-            user: foundUser
-        });
-    });
-});
+// sessionsRouter.get('/:id', (req, res) => {
+//     User.findById(req.params.id)
+//     .populate('user')
+//     .exec((err, foundUser) => {
+//         res.render('/sessions/profile.ejs', {
+//             user: foundUser
+//         });
+//     });
+// });
 
 // Export Sessions Router
 module.exports = sessionsRouter;
