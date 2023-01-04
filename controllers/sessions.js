@@ -4,39 +4,9 @@ const bcrypt = require('bcrypt');
 const sessionsRouter = express.Router();
 const User = require('../models/user.js');
 const session = require('express-session');
+const checkAuth = require('../middleware/checkauth.js')
 
 // I is for INDEXs
-sessionsRouter.get('/', (req, res) => {
-    if (req.session.currentUser) {
-        res.render('profile.ejs', {
-        currentUser: req.session.currentUser,
-        tabTitle: 'Profile',
-    });
-    } else {
-        res.render('index.ejs', {
-            currentUser: req.session.currentUser,
-            tabTitle: 'Register or Login',
-        });
-    }
-});
-
-// Forgotten Password Route
-
-sessionsRouter.get('/forgotten', (req, res) => {
-res.render('/forgotten.ejs', {
-    currentUser: req.session.currentUser,
-    tabTitle: 'Rick Roll',
-    });
-});
-
-// Pizza Route
-
-sessionsRouter.get('/pizza', (req, res) => {
-    res.render('/pizza.ejs', {
-        currentUser: req.session.currentUser,
-        tabTitle: 'I want Pizza',
-        });
-    });
 
 sessionsRouter.get('/profile', (req, res) => {
     User.find({}, (err, users) => {
@@ -46,7 +16,7 @@ sessionsRouter.get('/profile', (req, res) => {
 
 // N is for NEW
 
-sessionsRouter.get('/jobs', (req, res) => {
+sessionsRouter.get('/jobs', checkAuth, (req, res) => {
 	// step 1) find all available authors from the author collection
 	// step 2) provide those authors as a context to the new.ejs template
 	User.find({}, (err, user) => {

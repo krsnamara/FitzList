@@ -31,16 +31,16 @@ app.use(
             saveUninitialized: false,
         }));
 app.use(methodOverride('_method'));
-app.use(express.json());
 
 // To link static directory/file 
 app.use(express.static('.'));
 
 // Controllers
 const userController = require('./controllers/users');
-const sessionsController = require('./controllers/sessions');
 app.use('/users', userController);
+const sessionsController = require('./controllers/sessions');
 app.use('/sessions', sessionsController);
+const eggsRouter = require('./controllers/eggs.js')
 
 // Routes
 // I is for INDEX
@@ -59,19 +59,19 @@ app.get('/', (req, res) => {
     }
 });
 
-app.get('/pizza', (req, res) => {
-    res.render('pizza.ejs', {
-        currentUser: req.session.currentUser,
-        tabTitle: 'App I want Pizza',
-        });
-    });
+// app.get('/pizza', (req, res) => {
+//     res.render('pizza.ejs', {
+//         currentUser: req.session.currentUser,
+//         tabTitle: 'App I want Pizza',
+//         });
+//     });
 
-app.get('/forgotten', (req, res) => {
-    res.render('forgotten.ejs', {
-        currentUser: req.session.currentUser,
-        tabTitle: 'app Rick Roll',
-        });
-    });
+// app.get('/forgotten', (req, res) => {
+//     res.render('forgotten.ejs', {
+//         currentUser: req.session.currentUser,
+//         tabTitle: 'app Rick Roll',
+//         });
+//     });
 
     // app.get('/profile', (req, res) => {
     //         res.render('sessions/profile.ejs', {
