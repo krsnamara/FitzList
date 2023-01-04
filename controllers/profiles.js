@@ -10,7 +10,7 @@ const Profiles = require('../models/profiles');
 
 // Routes
 
-profilesRouter.get('/profiles', (req, res) => {
+profilesRouter.get('/', (req, res) => {
     Profiles.find({}, (err, profile)  => {
         res.render('profiles/profiles.ejs', {
             currentUser: req.session.currentUser,
@@ -20,7 +20,7 @@ profilesRouter.get('/profiles', (req, res) => {
 });
 
 // N is for NEW
-profilesRouter.get('/profiles/newuser', checkAuth, (req, res) => {
+profilesRouter.get('/newuser', checkAuth, (req, res) => {
     res.render('profiles/newprofile.ejs', {
         currentUser: req.session.currentUser,
         tabTitle: 'Join us now!',
@@ -28,31 +28,32 @@ profilesRouter.get('/profiles/newuser', checkAuth, (req, res) => {
 });
 
 // D is for DELETE
-profilesRouter.delete('/profiles/:id', (req, res) => {
+profilesRouter.delete('/:id', (req, res) => {
     Profiles.findByIdAndDelete(req.params.id, (err) => {
-        res.redirect('/newuser');
+        res.redirect('/profiles');
     });
 });
 
 // U is for UPDATE
-profilesRouter.put('/profiles/:id', (req, res) => {
+profilesRouter.put('/:id', (req, res) => {
     Profiles.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, profile) =>{
         res.redirect('/profiles');
     });
 });
 
 // C is for CREATE
-profilesRouter.post('/profiles', (req, res) => {
+profilesRouter.post('/newuser', (req, res) => {
+    console.log('string of random words');
     Profiles.create(req.body, (err, profile) => {
-        // console.log(users),
-        res.redirect('/profiles');
+        // console.log(profile),
+        // res.redirect('/');
         // res.send(err);
     });
     // console.log(req.body)
 });
 
 // E is for EDIT
-profilesRouter.get('/profiles/:id/edit', (req, res) => {
+profilesRouter.get('/:id/edit', (req, res) => {
     Profiles.findById(req.params.id, (err, profile) =>{
         res.render('profiles/editprofile.ejs', {
             currentUser: req.session.currentUser,
@@ -63,7 +64,7 @@ profilesRouter.get('/profiles/:id/edit', (req, res) => {
 });
 
 // S is for SHOW
-profilesRouter.get('/profiles/:id', (req, res) => {
+profilesRouter.get('/:id', (req, res) => {
     Profiles.findById(req.params.id, (err, profile) => {
         res.render('profiles/showprofile.ejs', {
             currentUser: req.session.currentUser,

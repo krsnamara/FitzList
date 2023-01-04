@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
-const methodOverride = require('method-override');
 require('dotenv').config();
 const User = require('./models/user.js');
 const Profiles = require('./models/profiles.js')
@@ -30,6 +29,7 @@ app.use(
             resave: false,
             saveUninitialized: false,
         }));
+const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 // To link static directory/file 
@@ -43,7 +43,7 @@ app.use('/sessions', sessionsController);
 const eggsController = require('./controllers/eggs.js');
 app.use(eggsController);
 const profilesController = require('./controllers/profiles.js');
-app.use(profilesController);
+app.use('/profiles', profilesController);
 
 // Index Route
 app.get('/', (req, res) => {

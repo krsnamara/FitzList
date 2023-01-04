@@ -188,6 +188,7 @@ li {
 .main-index{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 .username{
     background-color: rgb(188, 188, 158, .4);
