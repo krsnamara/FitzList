@@ -1,4 +1,3 @@
-<img src="assests/laughing-dad.jpg" alt="drawing" width="200"/>[^1] 
 # FitzList: Where folks in the trade Link In
 ***
 ## Description
@@ -15,7 +14,8 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 - Trello
 - Invision
 - Figma
-- Git/Github - Github Pages for Hosting
+- Git/Github
+- Heroku Deployed
 ***
 ## Screenshots
 ![wireframe](public/imgs/readme-img/wireframe-landing.png)
@@ -24,7 +24,7 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 <br>
 ***
 ### Production version
-![wireframe](/public/imgs/readme-img/screenshot-wip.png)
+![production](/public/imgs/readme-img/screenshot-wip.png)
 ***
 ## Deployed Website
 [lets go find that job...](https://krsnamara.github.io/FitzList/) to visit deployed app! 
@@ -35,6 +35,3 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 - Adding a feature that allows a user to save jobs postings
 - Adding a feature that allows a user to save other users profiles and interact via notes
 
-
-
-[^1]: Laughing Dad image came from [FAVEPNG Website](https://favpng.com/png_view/laughing-clipart-cartoon-royalty-free-laughter-clip-art-png/jeH9qJp5)

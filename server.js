@@ -52,21 +52,6 @@ app.get('/', (req, res) => {
             tabTitle: 'Register or Login',
         });
     });
-    
-// If else to show index.ejs or profile.ejs
-// app.get('/', (req, res) => {
-//     if (req.session.currentUser) {
-//         res.render('profile.ejs', {
-//         currentUser: req.session.currentUser,
-//         tabTitle: 'Profile',
-//     });
-//     } else {
-//         res.render('index.ejs', {
-//             currentUser: req.session.currentUser,
-//             tabTitle: 'Register or Login',
-//         });
-//     }
-// });
 
 // Listening 
 app.listen(PORT, () => console.log('express is listening on:', PORT));

@@ -4,8 +4,6 @@ const express = require('express');
 const userRouter = express.Router();
 const User = require('../models/user.js');
 
-// I is for INDEX
-
 // N is for NEW
 userRouter.get('/join', (req, res) => {
     res.render('users/join.ejs', {
@@ -13,9 +11,6 @@ userRouter.get('/join', (req, res) => {
         tabTitle: 'Join us now!'
     });
 });
-// D is for DELETE
-
-// U is for UPDATE
 
 // C is for CREATE
 userRouter.post('/', (req, res) => {
@@ -27,10 +22,6 @@ userRouter.post('/', (req, res) => {
         res.redirect('/');
     });
 });
-// E is for EDIT
-
-// S is for SHOW
-
 
 // Export User Router
 module.exports = userRouter;
