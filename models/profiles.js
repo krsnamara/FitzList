@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Defining New Schema Name and Key Value Pairs
-const userSchema = Schema(
+const profileSchema = Schema(
     {
         profileimg: { type: String },
         name: { type: String},
@@ -14,7 +14,7 @@ const userSchema = Schema(
 );
 
 // User Model
-const Profiles = mongoose.model('Profiles', userSchema);
+const Profiles = mongoose.model('Profiles', profileSchema);
 
 // Export User Model
 module.exports = Profiles;
