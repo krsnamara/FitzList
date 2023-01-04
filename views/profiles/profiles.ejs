@@ -4,18 +4,36 @@
     <body>
         <%- include('../partials/nav.ejs') %>
         <div class='body-overlay'>
+            <% if(currentUser) {%>
                 <h1>
                     <a href='/profiles/newuser'>Create New Profile</a>
                 </h1>
         <div class="main-index">
-            <% for (let i = 0; i < users.length; i++){%>
-            <div class='indexdisplay' onclick="location.href='/profiles/<%= users[i].id %>'">
-                <img src="<%=users[i].profileimg %>" class="homeimg" alt="profileimg">
-                <div class="username"><%= users[i].name %></div> 
+            <% for (let i = 0; i < profile.length; i++){%>
+            <div class='indexdisplay' onclick="location.href='/profiles/<%= profile[i].id %>'">
+                <img src="<%=profile[i].profileimg %>" class="homeimg" alt="profileimg">
+                <div class="username"><%= profile[i].name %></div> 
             </div>
             <% } %>
         </div>
     </div>
+    <% } else { %>
+        <div class="main-index">
+            <% for (let i = 0; i < profile.length; i++){%>
+            <div class='indexdisplay' onclick="location.href='/profiles/<%= profile[i].id %>'">
+                <img src="<%=profile[i].profileimg %>" class="homeimg" alt="profileimg">
+                <div class="username"><%= profile[i].name %></div> 
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <% }%>
         <%- include('../partials/footer.ejs') %>
 </body>
 </html>
+
+
+    
+   
+       
+    

@@ -6,6 +6,7 @@ const User = require('../models/user.js');
 const session = require('express-session');
 const checkAuth = require('../middleware/checkauth.js')
 
+
 // D is for DELETE
 sessionsRouter.delete('/', (req, res) => {
     req.session.destroy((error) => {
@@ -26,7 +27,7 @@ sessionsRouter.post('/', (req, res) => {
 
             if (passwordMatches) {
                 req.session.currentUser = foundUser;
-                res.redirect('/');
+                res.redirect('/profiles');
             } else {
                 res.send('Oops! Invalid credentials.');
             }

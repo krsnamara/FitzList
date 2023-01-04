@@ -29,5 +29,13 @@ eggsRouter.get('/forgotten', (req, res) => {
             });
         });
     
+// Login Request Route
+    eggsRouter.get('/loginplease', (req, res) => {
+        res.render('eggs/loginplease.ejs', {
+            currentUser: req.session.currentUser,
+            tabTitle: 'Register or Login Please',
+        });
+    });
+
     // Export User Router
 module.exports = eggsRouter;

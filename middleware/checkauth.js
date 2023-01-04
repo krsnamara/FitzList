@@ -4,7 +4,7 @@ function checkAuth(req, res, next) {
     if (req.session.currentUser) {
         next();
     } else {
-        res.redirect('/')
+        res.redirect('/loginplease')
     };
     // console.log('im checking authentication'); 
 };
