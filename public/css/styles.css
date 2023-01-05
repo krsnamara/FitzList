@@ -275,3 +275,30 @@ li {
   .slides::-webkit-scrollbar {
     display: none;
   }
+
+  /* Jobs View Styling */
+
+  .jobpostlink {
+    font-family: 'Kanit', sans-serif;
+    color:darkgreen;
+  }
+
+  .jobpost-index{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+.jobindexdisplay {
+    position: relative;
+    border: #19AD1E solid 2px;
+}
+
+  .jobtile {
+    background-color: rgb(188, 188, 158, .8);
+    font-family: 'Kanit', sans-serif;
+    position: absolute;
+    max-width: 160px;
+    top: 330px;
+}

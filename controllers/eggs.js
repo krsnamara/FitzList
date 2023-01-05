@@ -36,6 +36,13 @@ eggsRouter.get('/forgotten', (req, res) => {
             tabTitle: 'Register or Login Please',
         });
     });
+// Future Enhancements on Me Nav Button
+    eggsRouter.get('/myprofile', (req, res) => {
+        res.render('eggs/myprofile.ejs', {
+            currentUser: req.session.currentUser,
+            tabTitle: 'Its Me',
+        });
+    });
 
     // Export User Router
 module.exports = eggsRouter;

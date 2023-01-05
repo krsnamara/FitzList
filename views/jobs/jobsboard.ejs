@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+    <body>
+        <%- include('../partials/nav.ejs') %>
+        <div class=''>
+            <% if(currentUser) {%>
+                <h1>
+                    <a href='/jobs/newjob'>Create New Job Post</a>
+                </h1>
+        <div class="jobpost-index">
+            <% for (let i = 0; i < jobs.length; i++){%>
+            <div>
+                <div class="jobindexdisplay" onclick="location.href='/profiles/<%=jobs[i].profile%>'">
+                    <img src="<%=jobs[i].profileimg %>" class="homeimg"  alt="profileimg"></div>
+                <div class="jobtile" ><%= jobs[i].title %></div>
+                <textarea cols="20" rows="5"><%= jobs[i].body %></textarea> 
+            </div><br><br>
+            
+            <% } %>
+        </div>
+    </div>
+    <% } else { %>
+        <div class="main-index">
+            <% for (let i = 0; i < jobs.length; i++){%>
+            <div>
+                <div class="bioimage"><img class="profileimg" src="<%=jobs[i].profileimg %>" alt="profileimage"></div>
+                <div class="jobpostlink" onclick="location.href='/profiles/<%=jobs[i].profile%>'"><%= jobs[i].title %></div>
+                <textarea cols="20" rows="5"><%= jobs[i].body %></textarea> 
+            </div><br><br>
+            <% } %>
+        </div>
+    </div>
+    <% }%>
+        <%- include('../partials/footer.ejs') %>
+</body>
+</html>

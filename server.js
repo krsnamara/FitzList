@@ -44,6 +44,8 @@ const eggsController = require('./controllers/eggs.js');
 app.use(eggsController);
 const profilesController = require('./controllers/profiles.js');
 app.use('/profiles', profilesController);
+const jobsController = require('./controllers/jobs');
+app.use('/jobs', jobsController);
 
 // Index Route
 app.get('/', (req, res) => {

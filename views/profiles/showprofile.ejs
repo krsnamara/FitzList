@@ -5,7 +5,11 @@
     <%- include('../partials/nav.ejs') %>
         <main>
             <% if(currentUser) {%>
-            <a href="/profiles/<%=profile.id%>/edit/">Edit Profile</a>
+            <div>
+                <a href="/profiles/<%=profile.id%>/edit/">Edit Profile</a> 
+                <a href="/jobs/newjob">Create Job Posting</a> 
+
+            </div>
             <div class="profilewrapper">
                 <div class="bioimage"><img class="profileimg" src="<%=profile.profileimg %>" alt="profileimage"></div>
                 <div class="bio"><p><%=profile.name %></p>
