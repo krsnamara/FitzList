@@ -291,6 +291,8 @@ li {
     gap: 10px;
 }
 .jobindexdisplay {
+    display: flex;
+    flex-direction: column;
     position: relative;
     border: #19AD1E solid 2px;
 }

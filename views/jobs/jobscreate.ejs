@@ -11,13 +11,13 @@
 			<select name="profile">
 				<% profiles.forEach(p => { %>
 					<option value="<%= p._id%>"><%= p.name %></option>
-			</select><br>
-			<input type="text" name="profileimg" value="<%= p.profileimg%>"><br>
+					<% });%>	
+				</select><br>
 			<input type="text" name="title" /><br />
 			<textarea name="body"></textarea><br />
 			<input type="submit" value="Publish Job Post" />
 		</form>
-		<% });%>
+		
 	</main>
 	<%- include('../partials/footer.ejs') %>
 </body>

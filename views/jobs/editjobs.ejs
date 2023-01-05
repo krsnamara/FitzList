@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../partials/head.ejs') %>
+<body>
+	<%- include('../partials/nav.ejs') %>
+    <header>
+		<h1>Edit Job Post</h1>
+	</header>
+	<main>
+		<form action="/jobs/<%=jobs._id%>?_method=PUT" method="POST">
+			Profile: <input type="text" name="profile" value="<%= jobs.profile%>"><br>
+			Profile Img:<input type="text" name="profileimg" value="<%= jobs.profileimg%>"><br>
+			<input type="text" name="title" value="<%=jobs.title%>"><br>
+			<textarea type="text" name="body"><%=jobs.body%></textarea><br />
+			<input type="submit" value="Edit Job Post" />
+		</form>
+        <form action='/jobs/<%=jobs.id %>?_method=DELETE' method='POST' >
+            <input type="submit" value='DELETE' />
+        </form>
+	</main>
+	<%- include('../partials/footer.ejs') %>
+</body>
+</html>

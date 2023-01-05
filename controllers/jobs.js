@@ -64,10 +64,10 @@ jobsRouter.post('/newjob', (req, res) => {
 
 // E is for EDIT
 jobsRouter.get('/:id/edit', (req, res) => {
-    Jobs.findById(req.params.id, (err, job) =>{
+    Jobs.findById(req.params.id, (err, jobs) =>{
         res.render('jobs/editjobs.ejs', {
             currentUser: req.session.currentUser,
-            job,
+            jobs,
             tabTitle: 'Lets edit',
         });
     });
