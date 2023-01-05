@@ -4,7 +4,7 @@
 A remake of LinkedIn but with the construction and trade worker in mind. Users can register to add skills, related projects, references, and more info to better build a profile for prospective employers.
 ***
 ## Technologies Used
-[![My Skills](https://skillicons.dev/icons?i=vscode,js,html,css,git,github,nodejs,express,mongodb,heroku,figma&perline=6)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,js,html,css,git,github,nodejs,express,mongodb,heroku,figma&perline=4)](https://skillicons.dev)
 - HTML5
 - CSS3
 - JavaScript
