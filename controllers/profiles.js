@@ -10,6 +10,16 @@ const Profiles = require('../models/profiles');
 
 // Routes
 
+// Seed
+const seed = require('../models/seed');
+profilesRouter.get('/seed', (req, res) => {
+    Profiles.deleteMany({}, (error, seed) => {});
+
+    Profiles.create(seed, (error, data) => {
+        res.redirect('/');
+    });
+});
+
 profilesRouter.get('/', (req, res) => {
     Profiles.find({}, (err, profile)  => {
         res.render('profiles/profiles.ejs', {
