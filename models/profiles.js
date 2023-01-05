@@ -9,6 +9,12 @@ const profileSchema = Schema(
         name: { type: String},
         about: {type: String},
         skills: { type: String},
+        projectsimga: { type: String},
+        projectsimgb: { type: String},
+        projectsimgc: { type: String},
+        projectsimgd: { type: String},
+        projectsimge: { type: String},
+        projectsimgf: { type: String},
     },  
     {   timestamps: true }
 );

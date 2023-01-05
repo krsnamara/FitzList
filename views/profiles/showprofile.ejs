@@ -18,12 +18,16 @@
                 </div>
             </div>
             <span>Project Pictures</span>
-            <div class="portfolio">
-                <div class="grid4"><img class="portfolioimg" src="https://i.imgur.com/sZAWcYg.jpeg" alt="electrical box"></div>
-                <div class="grid5"><img class="portfolioimg" src="https://i.imgur.com/jKxhCvx.jpeg" alt="art station"></div>
-                <div class="grid6"><img class="portfolioimg" src="https://i.imgur.com/fkDFt68.jpeg" alt="spray booth"></div>
-                <div class="grid7"><img class="portfolioimg" src="https://i.imgur.com/0qnX0HD.jpeg" alt="store build"></div>
-                <!-- <img class="grid8" src="https://i.imgur.com/u2Sh5LD.jpeg" alt="hanging bars"> -->
+            <div class="gallery-container"> 
+                <div class="thumbnails"></div>
+                <div class="slides">
+                  <div><img src="<%=profile.projectsimga %>"></div>
+                  <div><img src="<%=profile.projectsimgb %>"></div>
+                  <div><img src="<%=profile.projectsimgc %>"></div>
+                  <div><img src="<%=profile.projectsimgd %>"></div>
+                  <div><img src="<%=profile.projectsimge %>"></div>
+                  <div><img src="<%=profile.projectsimgf %>"></div>
+                </div>
             </div>
             <% } else { %>
                 <a href="/profiles" class="logoutbtn">Back to Profiles Index</a>
@@ -33,22 +37,59 @@
                     <textarea name="bio" id="bio" cols="30" rows="10"><%=profile.about %></textarea>
                 </div>
                 <div class="skills"><p>Skills List</p>
-                    <ul>
-                        <li><%=profile.skills %></li>
-                    </ul>
+                    <h5 style="color:black;"><%=profile.skills %></h5>
                 </div>
             </div>
             <span>Project Pictures</span>
-            <div class="portfolio">
-                <div class="grid4"><img class="portfolioimg" src="https://i.imgur.com/sZAWcYg.jpeg" alt="electrical box"></div>
-                <div class="grid5"><img class="portfolioimg" src="https://i.imgur.com/jKxhCvx.jpeg" alt="art station"></div>
-                <div class="grid6"><img class="portfolioimg" src="https://i.imgur.com/fkDFt68.jpeg" alt="spray booth"></div>
-                <div class="grid7"><img class="portfolioimg" src="https://i.imgur.com/0qnX0HD.jpeg" alt="store build"></div>
-                <!-- <img class="grid8" src="https://i.imgur.com/u2Sh5LD.jpeg" alt="hanging bars"> -->
-            </div>
+            <!-- https://www.30secondsofcode.org/css/s/horizontal-gallery for gallery code -->
+            <div class="gallery-container"> 
+                <div class="thumbnails"></div>
+                <div class="slides">
+                  <div><img src="<%=profile.projectsimga %>"></div>
+                  <div><img src="<%=profile.projectsimgb %>"></div>
+                  <div><img src="<%=profile.projectsimgc %>"></div>
+                  <div><img src="<%=profile.projectsimgd %>"></div>
+                  <div><img src="<%=profile.projectsimge %>"></div>
+                  <div><img src="<%=profile.projectsimgf %>"></div>
+                </div>
+              </div>
             <% }%>
         </main>
     <%- include('../partials/footer.ejs') %>
 </body>
+<script>
+    const slideGallery = document.querySelector('.slides');
+    const slides = slideGallery.querySelectorAll('div');
+    const thumbnailContainer = document.querySelector('.thumbnails');
+    const slideCount = slides.length;
+    const slideWidth = 540;
+
+    const highlightThumbnail = () => {
+    thumbnailContainer
+        .querySelectorAll('div.highlighted')
+        .forEach(el => el.classList.remove('highlighted'));
+    const index = Math.floor(slideGallery.scrollLeft / slideWidth);
+    thumbnailContainer
+        .querySelector(`div[data-id="${index}"]`)
+        .classList.add('highlighted');
+    };
+
+    const scrollToElement = el => {
+    const index = parseInt(el.dataset.id, 10);
+    slideGallery.scrollTo(index * slideWidth, 0);
+    };
+
+    thumbnailContainer.innerHTML += [...slides]
+    .map((slide, i) => `<div data-id="${i}"></div>`)
+    .join('');
+
+    thumbnailContainer.querySelectorAll('div').forEach(el => {
+    el.addEventListener('click', () => scrollToElement(el));
+    });
+
+    slideGallery.addEventListener('scroll', e => highlightThumbnail());
+
+    highlightThumbnail();
+</script>
 </html>
     

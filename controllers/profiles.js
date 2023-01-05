@@ -13,7 +13,7 @@ const Profiles = require('../models/profiles');
 // Seed
 const seed = require('../models/seed');
 profilesRouter.get('/seed', (req, res) => {
-    Profiles.deleteMany({}, (error, seed) => {});
+    Profiles.deleteMany({}, (error, allProfiles) => {});
 
     Profiles.create(seed, (error, data) => {
         res.redirect('/');

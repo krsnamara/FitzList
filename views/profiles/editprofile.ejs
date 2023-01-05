@@ -10,6 +10,12 @@
                 Name: <input type="text" name="name" value="<%=profile.name %>"><br>
                 Bio: <textarea type="text" name="about"><%=profile.about %></textarea><br>
                 Skills: <input type="text" name="skills" value="<%=profile.skills %>"><br>
+                Project Img: <input type="text" name="projectsimga" value="<%=profile.projectsimga %>"><br>
+                Project Img: <input type="text" name="projectsimgb" value="<%=profile.projectsimgb %>"><br>
+                Project Img: <input type="text" name="projectsimgc" value="<%=profile.projectsimgc %>"><br>
+                Project Img: <input type="text" name="projectsimgd" value="<%=profile.projectsimgd %>"><br>
+                Project Img: <input type="text" name="projectsimge" value="<%=profile.projectsimge %>"><br>
+                Project Img: <input type="text" name="projectsimgf" value="<%=profile.projectsimgf %>"><br>
                 <input type="submit" value="Edit Profile">
             </form>
             <form action='/profiles/<%=profile.id %>?_method=DELETE' method='POST' >
