@@ -28,11 +28,11 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 ![production](/public/imgs/readme-img/screenshot-wip.png)
 ***
 ## Deployed Website
-[lets go find that job...](https://krsnamara.github.io/FitzList/) to visit deployed app! 
+[lets go find that job...](https://project2forgeneralassembly.herokuapp.com/) to visit deployed app! 
 ***
 ## Future Enhancements
 - Adding a feature that allows users to create a 'Looking for work' post
 - Adding a feature that allows a users to comment on others project photos
-- Adding a feature that allows a user to save jobs postings
+- Adding a feature that allows a user to save and search jobs postings based zip
 - Adding a feature that allows a user to save other users profiles and interact via notes
 
