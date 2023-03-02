@@ -25,7 +25,7 @@ A remake of LinkedIn but with the construction and trade worker in mind. Users c
 <br>
 ***
 ### Production version
-![production](/public/imgs/readme-img/screenshot-wip.png)
+![production](/public/imgs/readme-img/fitzlist-square.png)
 ***
 ## Deployed Website
 [lets go find that job...](https://project2forgeneralassembly.herokuapp.com/) to visit deployed app! 
